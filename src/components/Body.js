@@ -1,17 +1,21 @@
 import { resList } from "../utils/mockData";
 import { RestrauntCard } from "./RestrauntCard";
 import { DominosImageOnHomePageURL } from "../utils/constants";
+import { useState } from "react";
 const Body = () => {
+  const [listofrestraunts, setlistofrestraunts] = useState(resList);
+
   return (
     <div className="Body">
-      {/* <div className="search">search</div> */}
-
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            resList = resList.filter((res) => res.info.avgRating > 4);
-            console.log(resList);
+            const filteredlist = resList.filter(
+              (res) => res.info.avgRating > 4
+            ); //doubt its printing all the 15 elements of the list (not filtering)
+            // console.log(resList);
+            setlistofrestraunts(filteredlist);
           }}
         >
           Top Rated Restraunts
