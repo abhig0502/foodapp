@@ -54,7 +54,7 @@
   border: 2px solid rgb(224, 221, 221);
   flex-direction: column;
   /* width: 400px; */
-  height: 300px;
+  height: 400px;
   padding: 10px;
   display: flex;
   width: 400px;
@@ -76,7 +76,7 @@
   display: flex;
 }
 
-.res-name {
+/* .res-name {
   font-size: 30px;
   font-weight: 700;
   padding: 10px;
@@ -93,7 +93,7 @@
   font-weight: 500;
   padding-left: 10px;
   margin: 10px;
-}
+} */
 
 .textbox {
   padding: 23px;
@@ -123,7 +123,45 @@
   justify-content: center;
 }
 
-.food-image {
+.res-image {
   width: 400px;
-  height: 170px;
+  height: 192px;
+  border-radius: 15px;
+}
+
+
+.name {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.name:hover {
+  
+  color: rgb(247, 7, 7);
+  
+}
+
+.locality {
+  font-size: 25px;
+  padding-top: 5px;
+}
+
+.areaName {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.costForTwo {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.cuisines {
+  font-size: 18px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.avgRating {
+  font-size: 20px;
 }
