@@ -37,7 +37,7 @@
 
 .home-page-image {
   width: 1500px;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -109,7 +109,6 @@
 }
 
 .search-button {
-  
   border: 2px solid #accc;
   border-radius: 5px;
   width: 100px;
@@ -129,16 +128,14 @@
   border-radius: 15px;
 }
 
-
 .name {
   font-size: 30px;
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .name:hover {
-  
   color: rgb(247, 7, 7);
-  
 }
 
 .locality {
@@ -164,4 +161,26 @@
 
 .avgRating {
   font-size: 20px;
+}
+
+.filter-btn {
+  /* margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 5px; */
+  margin: 30px 20px 0px 20px;
+  /* margin: 20px; */
+  padding: 10px;
+  font-size: 20px;
+  width: 300px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2 px solid white;
+}
+
+.filter-btn:hover {
+  background-color: rgba(115, 44, 3, 0.906);
+  box-shadow: 10px 10px 10px rgba(241, 91, 5, 0.906);
+  color: rgb(255, 234, 0);
+  border-color: rgb(255, 251, 0);
+  
 }

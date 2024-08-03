@@ -1,12 +1,25 @@
 import { resList } from "../utils/mockData";
 import { RestrauntCard } from "./RestrauntCard";
+import { DominosImageOnHomePageURL } from "../utils/constants";
 const Body = () => {
   return (
     <div className="Body">
       {/* <div className="search">search</div> */}
 
+      <div className="filter">
+        <button
+          className="filter-btn"
+          onClick={() => {
+            resList = resList.filter((res) => res.info.avgRating > 4);
+            console.log(resList);
+          }}
+        >
+          Top Rated Restraunts
+        </button>
+      </div>
+
       <img
-        src="https://www.dominos.co.in/blog/wp-content/uploads/2023/02/Pizza-Toppings-Banner.jpg"
+        src={DominosImageOnHomePageURL}
         alt="home-image"
         className="home-page-image"
       />
