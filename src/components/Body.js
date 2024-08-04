@@ -30,7 +30,7 @@ const Body = () => {
 
       <div className="res-container">
         {/* restrauntcards */}
-        {resList.map((resItem) => {
+        {listofrestraunts.map((resItem) => {
           return <RestrauntCard key={resItem.info.id} res={resItem} />;
         })}
       </div>
