@@ -5,8 +5,8 @@
  * Header
  *  -logo
  *  -nav bar Items
- * Body
  *  -search
+ * Body
  *  -Restraunt container
  *  -Restraunt card
  * Footer
@@ -36,7 +36,12 @@ import {Component} from "path";
 
 
 # React Hooks
+
+what is hooks in react?
+- Its nothing by a normal javascript function which is given by the react
+
 (Normal JS utility functions)
 
--useState() -use dot generate superpowerful state variables (you need to import useState from the react module)
--useEffect()
+-useState() -used to generate superpowerful state variables (you need to import useState from the react module)
+
+-useEffect() takes two arguments one is the arrow function and the other is the dependency array 

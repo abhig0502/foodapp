@@ -8,6 +8,7 @@
     "build": "parcel build index.html",
     "test": "jest"
   },
+  "proxy": "https://www.swiggy.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abhig0502/foodapp.git"
