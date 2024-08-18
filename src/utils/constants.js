@@ -5,3 +5,5 @@ export const LogoImageURL =
 
 export const DominosImageOnHomePageURL =
   "https://www.dominos.co.in/blog/wp-content/uploads/2023/02/Pizza-Toppings-Banner.jpg";
+
+export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.61450&lng=77.30630&restaurantId="

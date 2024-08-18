@@ -2,8 +2,20 @@ import { resList } from "../utils/mockData";
 import { RestrauntCard } from "./RestrauntCard";
 import { DominosImageOnHomePageURL } from "../utils/constants";
 import { useEffect, useState } from "react";
-const Body = () => {
-  const [listofrestraunts, setlistofrestraunts] = useState([]);
+import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+const Body = (props) => {
+  // const [listofrestraunts, setlistofrestraunts] = useState([]);
+  // const {listofrestraunts, setlistofrestraunts} = props;
+  const { restrauntsprops } = props;
+  const {
+    listofrestraunts,
+    setlistofrestraunts,
+    filteredListOfRestraunts,
+    setFilteredListOfRestraunts,
+  } = restrauntsprops;
 
   useEffect(() => {
     // fetch("google.com").then((response) => {
@@ -13,6 +25,7 @@ const Body = () => {
     // });
 
     fetchData();
+    console.log("inside res use effect");
   }, []);
 
   const fetchData = async () => {
@@ -27,43 +40,64 @@ const Body = () => {
     const response = await data.json();
     //why he has used optional chaining here setlistofrestraunts(response?.data?.cards[1]?.card?.card?.gridElements?.inforWithStyle?.restraunts)
     setlistofrestraunts(
-      response.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
     );
+    setFilteredListOfRestraunts(
+      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+    //console.log(response.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
   };
 
   //This is Conditional Rendering - a rendering based on some condition is called conditional rendering
-  if(listofrestraunts.length===0){
-    return <h1>loading...</h1>
+  // if(listofrestraunts.length===0){
+  // //  return <h1>loading...</h1>
+  //  return <Shimmer />
+  // }
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like you are offline !! please check your internet connection!
+      </h1>
+    );
   }
 
-  return (
+  return listofrestraunts.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="Body">
+      {/* <img
+        src={DominosImageOnHomePageURL}
+        alt="home-image"
+        className="home-page-image"
+      /> */}
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
             // console.log(listofrestraunts);
             const filteredlist = listofrestraunts.filter(
-              (res) => res.info.avgRating > 4.5
+              (res) => res.info.avgRating > 4.3
             );
-            setlistofrestraunts(filteredlist);
+            setFilteredListOfRestraunts(filteredlist);
             // console.log(filteredlist);
           }}
         >
-          Top Rated Restraunts
+          Top Rated Restaurants
         </button>
       </div>
 
-      <img
-        src={DominosImageOnHomePageURL}
-        alt="home-image"
-        className="home-page-image"
-      />
-
       <div className="res-container">
         {/* restrauntcards */}
-        {listofrestraunts.map((resItem) => {
-          return <RestrauntCard key={resItem.info.id} res={resItem} />;
+        {filteredListOfRestraunts.map((resItem) => {
+          return (
+            <Link key={resItem.info.id} to={"/restaurants/" + resItem.info.id}>
+              <RestrauntCard res={resItem} />
+            </Link>
+          ); //why we have put this key to link tag from restrauntcard?
         })}
       </div>
     </div>

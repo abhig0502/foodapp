@@ -1,0 +1,9 @@
+used to fix (image or something) the background of the app
+
+body {
+  /* background-image: url('https://www.dominos.co.in/blog/wp-content/uploads/2023/02/Pizza-Toppings-Banner.jpg'); */
+  background-attachment: fixed;
+  background-color: rgba(5, 19, 19, 0.868);
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+}

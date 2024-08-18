@@ -22,7 +22,7 @@ export const RestrauntCard = (props) => {
         <div className="locality">{res.info.locality}</div>
         <div className="areaName">{res.info.areaName}</div>
         <div className="costForTwo">{res.info.costForTwo}</div>
-        <div className="cuisines">{res.info.cuisines}</div>
+        <div className="cuisines">{res.info.cuisines.join(", ")}</div>
         <div className="avgRating">avgRating : {res.info.avgRating}</div>
       </div>
     );
