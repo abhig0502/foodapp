@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -14,6 +14,11 @@ import Error from "./Error";
 import { useLocation } from "react-router-dom";
 import { DominosImageOnHomePageURL } from "./src/utils/constants";
 import RestrauntMenu from "./src/components/RestaurantMenu";
+import Shimmer from "./src/components/shimmer";
+// import Shimmer from "./src/components/shimmer";
+// import Grocery from "./src/components/grocery";
+
+const Grocery = lazy(() => import("./src/components/grocery"));
 
 const AppLayout = () => {
   const [listofrestraunts, setlistofrestraunts] = useState([]);
@@ -54,8 +59,16 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/Grocery",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
         path: "/restaurants/:resId",
-        element: <RestrauntMenu />,
+        element: <RestrauntMenu />, 
       },
     ],
   },
@@ -63,3 +76,16 @@ const appRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />); // is router a defined keyword?
+
+// const props = {
+//   property1: [1, 2, 3, 23, 4],
+//   property2: "abhinav",
+// };
+
+// const props2 = [
+//   "abhinav",
+//   1324,
+//   "asdf234",
+// ];
+// console.log(["hello world", {...props},...props2]);
+// // console.log([...props2]);

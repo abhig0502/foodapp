@@ -4,7 +4,7 @@ const useOnlineStatus = () => {
   //check if online
   const [onlineStatus, setOnlineStatus] = useState(true);
   useEffect(() => {
-    console.log("inside useEffect");
+    // console.log("inside useEffect");
     window.addEventListener("offline", () => {
       setOnlineStatus(false);
       // console.log("i am inside offline");

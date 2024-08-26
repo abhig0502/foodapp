@@ -30,8 +30,10 @@ const RestrauntMenu = () => {
 
   const  itemcards  =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards
-  console.log(itemcards);
-// console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+  // console.log(itemcards);
+//console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+  console.log( resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+ const catogories=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c=>c.card?.card?.["@info"] ==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
   return (
     <div className="Menu">
@@ -40,6 +42,7 @@ const RestrauntMenu = () => {
         {resInfo?.cards[2]?.card?.card?.info?.cuisines.join(", ")} -{" "}
         {resInfo?.cards[2]?.card?.card?.info?.costfortwoMessage}
       </p>
+
       <h2>Menu</h2>
       <ul>
         {itemcards?.map((item) => (

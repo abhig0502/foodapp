@@ -71,3 +71,5 @@ what is dynamic bundling/chunking/code spliting/lazy loading/on demand loading/d
 in out single page website or react app
 lazy function working?  when the on demand loading takes place its throwing an error in order to handle that he used suspense component imported from react 
 suspense component ?
+
+--------------------on demand loading is not working?

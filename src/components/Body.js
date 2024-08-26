@@ -1,10 +1,11 @@
 import { resList } from "../utils/mockData";
-import { RestrauntCard } from "./RestrauntCard";
+import { RestrauntCard,withPrmotedLabel } from "./RestrauntCard";
 import { DominosImageOnHomePageURL } from "../utils/constants";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Body = (props) => {
   // const [listofrestraunts, setlistofrestraunts] = useState([]);
@@ -16,6 +17,8 @@ const Body = (props) => {
     filteredListOfRestraunts,
     setFilteredListOfRestraunts,
   } = restrauntsprops;
+  // console.log(listofrestraunts); 
+  const RestrauntCardPromoted=withPrmotedLabel(RestrauntCard);
 
   useEffect(() => {
     // fetch("google.com").then((response) => {
@@ -25,7 +28,7 @@ const Body = (props) => {
     // });
 
     fetchData();
-    console.log("inside res use effect");
+    // console.log("inside res use effect");
   }, []);
 
   const fetchData = async () => {
@@ -95,7 +98,10 @@ const Body = (props) => {
         {filteredListOfRestraunts.map((resItem) => {
           return (
             <Link key={resItem.info.id} to={"/restaurants/" + resItem.info.id}>
-              <RestrauntCard res={resItem} />
+            {
+              resItem.info.avgRating>4.1 ? <RestrauntCardPromoted res={resItem}/> : <RestrauntCard res={resItem}/> 
+            }
+ 
             </Link>
           ); //why we have put this key to link tag from restrauntcard?
         })}
@@ -103,5 +109,9 @@ const Body = (props) => {
     </div>
   );
 };
-
+// const numbers = [1, 2, 3, 4, 5, 6, 7];
+// const oddnumbers = numbers.filter((number) => {
+//   return number % 2 === 1;
+// });
+// console.log(oddnumbers);
 export default Body;

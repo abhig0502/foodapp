@@ -27,3 +27,12 @@ export const RestrauntCard = (props) => {
       </div>
     );
   };
+
+ export const withPrmotedLabel=(RestrauntCard)=>{
+  return (props)=>{
+    return <div>
+      <label className="absolute bg-orange-500 hover:bg-orange-300 px-2 py-2 mx-1 my-1 rounded-xl text-white text-lg ">Promoted</label>
+      <RestrauntCard {...props}/>
+    </div>
+  }
+}  
