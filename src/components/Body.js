@@ -1,10 +1,11 @@
 import { resList } from "../utils/mockData";
 import { RestrauntCard,withPrmotedLabel } from "./RestrauntCard";
 import { DominosImageOnHomePageURL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const Body = (props) => {
@@ -19,6 +20,7 @@ const Body = (props) => {
   } = restrauntsprops;
   // console.log(listofrestraunts); 
   const RestrauntCardPromoted=withPrmotedLabel(RestrauntCard);
+  const {loggedInUser,setUserName}=useContext(UserContext);
 
   useEffect(() => {
     // fetch("google.com").then((response) => {
@@ -91,6 +93,8 @@ const Body = (props) => {
         >
           Top Rated Restaurants
         </button>
+        <label className="text-2xl m-4">UserName </label>
+        <input className="border border-black w-[180px] h-[35px] px-3 rounded-xl text-lg" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
       </div>
 
       <div className="res-container">
@@ -103,6 +107,8 @@ const Body = (props) => {
             }
  
             </Link>
+              
+
           ); //why we have put this key to link tag from restrauntcard?
         })}
       </div>

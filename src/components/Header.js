@@ -1,8 +1,9 @@
 import { LogoImageURL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import headerBackground from "../../assets/headerBackground.png";
+import UserContext from "../utils/UserContext";
 //usecontext
 //redux store
 
@@ -18,6 +19,7 @@ export const Header = (props) => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
   const [searchText, setsearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+  const {loggedInUser}=useContext(UserContext);
 
   const handleSearchButtonClick = () => {
     console.log(searchText);
@@ -58,6 +60,7 @@ export const Header = (props) => {
             </li>
 
             <li>Cart</li>
+            <li>{loggedInUser}</li>
             <li 
               //className="login-btn"
               onClick={() => {

@@ -73,3 +73,10 @@ lazy function working?  when the on demand loading takes place its throwing an e
 suspense component ?
 
 --------------------on demand loading is not working?
+
+-what is this uselocation hook doing? (in app.js)  (using in return satetemant location.pathname==="/")
+-how the context is working on grocery as i have used lazy loading over their the file has not created even that it is changing the data?
+
+
+
+

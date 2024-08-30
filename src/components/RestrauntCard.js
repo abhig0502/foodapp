@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { RestrauntImageBaseURL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
+
 
 export const RestrauntCard = (props) => {
     const { res } = props;
     // console.log(res);
+    const {loggedInUser} =useContext(UserContext);
     return (
       <div className="res-card">
         {/* <img src={res.Image} alt={res.resname} className="card-image" /> */}
@@ -24,6 +28,7 @@ export const RestrauntCard = (props) => {
         <div className="costForTwo">{res.info.costForTwo}</div>
         <div className="cuisines">{res.info.cuisines.join(", ")}</div>
         <div className="avgRating">avgRating : {res.info.avgRating}</div>
+        <div className="my-5 font-bold">{loggedInUser}</div>
       </div>
     );
   };

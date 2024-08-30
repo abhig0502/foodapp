@@ -15,6 +15,7 @@ import { useLocation } from "react-router-dom";
 import { DominosImageOnHomePageURL } from "./src/utils/constants";
 import RestrauntMenu from "./src/components/RestaurantMenu";
 import Shimmer from "./src/components/shimmer";
+import UserContext from "./src/utils/UserContext";
 // import Shimmer from "./src/components/shimmer";
 // import Grocery from "./src/components/grocery";
 
@@ -23,24 +24,27 @@ const Grocery = lazy(() => import("./src/components/grocery"));
 const AppLayout = () => {
   const [listofrestraunts, setlistofrestraunts] = useState([]);
   const [filteredListOfRestraunts, setFilteredListOfRestraunts] = useState([]);
-  const location = useLocation();
+  const location = useLocation();  //what it is doing?
   const restrauntsprops = {
     listofrestraunts,
     setlistofrestraunts,
     filteredListOfRestraunts,
     setFilteredListOfRestraunts,
   };
+  const [userName,setUserName]=useState("Default User");
   return (
+    <UserContext.Provider value={{loggedInUser:userName , setUserName}}>
     <div className="app">
       <Header restrauntsprops={restrauntsprops} />
 
-      {/* <Body restrauntsprops={restrauntsprops} /> */}
+      <Body restrauntsprops={restrauntsprops} />
       {location.pathname === "/" ? (
         <Body restrauntsprops={restrauntsprops} />
       ) : (
         <Outlet />
       )}
     </div>
+    </UserContext.Provider>
   );
 };
 
