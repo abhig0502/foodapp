@@ -1,26 +1,25 @@
 # food ordering app
 
+/\*\*
 
-/**
- * Header
- *  -logo
- *  -nav bar Items
- *  -search
- * Body
- *  -Restraunt container
- *  -Restraunt card
- * Footer
- *  -Copyrights
- *  -Links
- *  -Address
- *  -Contact Us
- *
- */
-// const Title = () => (
-//   <div className="head">
-//     <h1>food ordering app</h1>
-//   </div>
-// );
+- Header
+- -logo
+- -nav bar Items
+- -search
+- Body
+- -Restraunt container
+- -Restraunt card
+- Footer
+- -Copyrights
+- -Links
+- -Address
+- -Contact Us
+- \*/
+  // const Title = () => (
+  // <div className="head">
+  // <h1>food ordering app</h1>
+  // </div>
+  // );
 
 Two types of Export/Import
 
@@ -33,18 +32,17 @@ import Component from "path";
 export const Compnent;
 import {Component} from "path";
 
-
-
 # React Hooks
 
 what is hooks in react?
+
 - Its nothing by a normal javascript function which is given by the react
 
 (Normal JS utility functions)
 
 -useState() -used to generate superpowerful state variables (you need to import useState from the react module)
 
--useEffect() takes two arguments one is the arrow function and the other is the dependency array 
+-useEffect() takes two arguments one is the arrow function and the other is the dependency array
 
 2-types of routing-
 
@@ -55,10 +53,9 @@ what is hooks in react?
 
 //(1:43:18) created a variable type object which will store the dummy data passed the avtaar url when its throwing error it removed the attribute even then the image is coming why ?
 
-first react will render with dummy data and in dummy data we do not have the avtaar url attribute than how are you accessing it 
+first react will render with dummy data and in dummy data we do not have the avtaar url attribute than how are you accessing it
 
-
-what is component did update ?   it gets executed after the componentDidMount but what is it?
+what is component did update ? it gets executed after the componentDidMount but what is it?
 what is component will unmount ? whenever the component will unmount then the unmounting cycle happens
 
 does componentwillmount all happen in functional component behind the scenes?
@@ -69,14 +66,19 @@ does componentwillmount all happen in functional component behind the scenes?
 what is dynamic bundling/chunking/code spliting/lazy loading/on demand loading/dynamic import ?
 -to break down the code into small bundles but we are doing this thing in out react page by changing the components
 in out single page website or react app
-lazy function working?  when the on demand loading takes place its throwing an error in order to handle that he used suspense component imported from react 
+lazy function working? when the on demand loading takes place its throwing an error in order to handle that he used suspense component imported from react
 suspense component ?
 
 --------------------on demand loading is not working?
 
--what is this uselocation hook doing? (in app.js)  (using in return satetemant location.pathname==="/")
+-what is this uselocation hook doing? (in app.js) (using in return satetemant location.pathname==="/")
 -how the context is working on grocery as i have used lazy loading over their the file has not created even that it is changing the data?
 
+# Redux Toolkit
 
-
-
+-Intall @reduxjs/toolkit and react-redux (commands for installing these libraries are npm install @redux/toolkit and npm install react-redux)
+-Build our store
+-Connect our store with our app
+-Slice (cartSlice)
+-dispatch(action)
+-selector
