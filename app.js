@@ -16,6 +16,9 @@ import { DominosImageOnHomePageURL } from "./src/utils/constants";
 import RestrauntMenu from "./src/components/RestaurantMenu";
 import Shimmer from "./src/components/shimmer";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/AppStore";
+
 // import Shimmer from "./src/components/shimmer";
 // import Grocery from "./src/components/grocery";
 
@@ -24,27 +27,29 @@ const Grocery = lazy(() => import("./src/components/grocery"));
 const AppLayout = () => {
   const [listofrestraunts, setlistofrestraunts] = useState([]);
   const [filteredListOfRestraunts, setFilteredListOfRestraunts] = useState([]);
-  const location = useLocation();  //what it is doing?
+  const location = useLocation(); //what it is doing?
   const restrauntsprops = {
     listofrestraunts,
     setlistofrestraunts,
     filteredListOfRestraunts,
     setFilteredListOfRestraunts,
   };
-  const [userName,setUserName]=useState("Default User");
+  const [userName, setUserName] = useState("Default User");
   return (
-    <UserContext.Provider value={{loggedInUser:userName , setUserName}}>
-    <div className="app">
-      <Header restrauntsprops={restrauntsprops} />
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header restrauntsprops={restrauntsprops} />
 
-      <Body restrauntsprops={restrauntsprops} />
-      {location.pathname === "/" ? (
-        <Body restrauntsprops={restrauntsprops} />
-      ) : (
-        <Outlet />
-      )}
-    </div>
-    </UserContext.Provider>
+          {/* <Body restrauntsprops={restrauntsprops} /> */}
+          {location.pathname === "/" ? (
+            <Body restrauntsprops={restrauntsprops} />
+          ) : (
+            <Outlet />
+          )}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -72,7 +77,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <RestrauntMenu />, 
+        element: <RestrauntMenu />,
       },
     ],
   },

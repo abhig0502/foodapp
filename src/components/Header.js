@@ -6,7 +6,7 @@ import headerBackground from "../../assets/headerBackground.png";
 import UserContext from "../utils/UserContext";
 //usecontext
 //redux store
-
+const item="pizza";
 export const Header = (props) => {
   // let btnName = "Login";
   const { restrauntsprops } = props;
@@ -21,12 +21,19 @@ export const Header = (props) => {
   const onlineStatus = useOnlineStatus();
   const {loggedInUser}=useContext(UserContext);
 
-  const handleSearchButtonClick = () => {
-    console.log(searchText);
+  const handleSearchButtonClick = (e) => {
+    // console.log(searchText);
+    console.log(e);
     const filteredRestraunt = listofrestraunts.filter((res) => {
       return res.info.name.toLowerCase().includes(searchText.toLowerCase());
     });
     setFilteredListOfRestraunts(filteredRestraunt);
+  };
+
+  const handleSearchButtonClickTemp = (item) => {
+    // console.log(searchText);
+    console.log(item);
+    
   };
   return (
     <div className="header">
@@ -59,7 +66,7 @@ export const Header = (props) => {
               <Link className="nav-item-text" to={"/Grocery"}>Grocery</Link>
             </li>
 
-            <li>Cart</li>
+            <li><Link className="text-xl">Cart</Link></li>
             <li>{loggedInUser}</li>
             <li 
               //className="login-btn"
@@ -102,7 +109,7 @@ export const Header = (props) => {
               }
             }}
           />
-          <button className="search-button" onClick={handleSearchButtonClick}>
+          <button className="search-button" onClick={handleSearchButtonClickTemp(item)}>
             Search
           </button>
         </div>

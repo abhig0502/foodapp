@@ -82,3 +82,10 @@ suspense component ?
 -Slice (cartSlice)
 -dispatch(action)
 -selector
+
+
+what is the difference between
+
+-onClick={handleClick}  //
+-onClick(handleClick(item))  
+-OnClick(()=>{handleClick(item)})   
